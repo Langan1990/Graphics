@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+
+    <style type="text/css">
+      body {
+          background-color: black;
+      }
+      
+        
+        
+                canvas {
+          
+                  position: fixed;
+                  top: 10%;
+                  left: 10%;
+                  border: 3px solid gold;
+                  background-color: forestgreen;
+                    }
+    </style>
+
+  </head>
+
+  <body>
+
+    <canvas id="canvas-for-ball" width="1000" height="500"></canvas>
+
+    <script type="text/javascript">
+      // Gets a handle to the element with id canvasOne.
+      var canvas = document.getElementById("canvas-for-ball");
+      // Get a 2D context for the canvas.
+      var ctx = canvas.getContext("2d");
+      // Set the fill colour to blue.
+      ctx.fillStyle = "rgb(0, 0, 255)";
+      
+      // The vertical location of the ball.
+      var y = 10;
+      // A function to repeat every time the animation loops.
+      function repeatme() {
+          
+          //clears the bricks so they're not a line going down the screen
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw the bricks (stroked, and filled).
+        ctx.beginPath();
+          ctx.fillStyle="rgb(255,255,255)";
+          ctx.strokeStyle="rgb(0,0,0)";
+          
+                          ctx.fillRect(20, y,50,10);
+                          ctx.rect(20, y,50,10);
+
+                          ctx.fillRect(70, y,50,10);
+                          ctx.rect(70, y,50,10);
+
+                          ctx.fillRect(120, y,50,10);
+                          ctx.rect(120, y,50,10);
+
+                          ctx.fillRect(170, y,50,10);
+                          ctx.rect(170, y,50,10);
+
+                          ctx.fillRect(220, y,50,10);
+                          ctx.rect(220, y,50,10);
+
+                          ctx.fillRect(270, y,50,10);
+                          ctx.rect(270, y,50,10);
+
+                          ctx.fillRect(320, y,50,10);
+                          ctx.rect(320, y,50,10);
+
+                          ctx.fillRect(370, y,50,10);
+                          ctx.rect(370, y,50,10);
+
+                          ctx.fillRect(420, y,50,10);
+                          ctx.rect(420, y,50,10);
+
+                          ctx.fillRect(470, y,50,10);
+                          ctx.rect(470, y,50,10);
+
+                          ctx.fillRect(520, y,50,10);
+                          ctx.rect(520, y,50,10);
+
+                          ctx.fillRect(570, y,50,10);
+                          ctx.rect(570, y,50,10);
+
+                          ctx.fillRect(620, y,50,10);
+                          ctx.rect(620, y,50,10);
+
+                          ctx.fillRect(670, y,50,10);
+                          ctx.rect(670, y,50,10);
+
+                          ctx.fillRect(720, y,50,10);
+                          ctx.rect(720, y,50,10);
+
+                          ctx.fillRect(770, y,50,10);
+                          ctx.rect(770, y,50,10);
+
+                          ctx.fillRect(820, y,50,10);
+                          ctx.rect(820, y,50,10);
+
+                          ctx.fillRect(870, y,50,10);
+                          ctx.rect(870, y,50,10);
+
+                          ctx.fillRect(920, y,50,10);
+                          ctx.rect(920, y,50,10);
+
+                          ctx.fillRect(20, y-10,50,10);
+                          ctx.rect(20, y-10,50,10);
+
+                          ctx.fillRect(70, y-10,50,10);
+                          ctx.rect(70, y-10,50,10);
+
+                          ctx.fillRect(120, y-10,50,10);
+                          ctx.rect(120, y-10,50,10);
+
+                          ctx.fillRect(170, y-10,50,10);
+                          ctx.rect(170, y-10,50,10);
+
+                          ctx.fillRect(220, y-10,50,10);
+                          ctx.rect(220, y-10,50,10);
+
+                          ctx.fillRect(270, y-10,50,10);
+                          ctx.rect(270, y-10,50,10);
+
+                          ctx.fillRect(320, y-10,50,10);
+                          ctx.rect(320, y-10,50,10);
+
+                          ctx.fillRect(370, y-10,50,10);
+                          ctx.rect(370, y-10,50,10);
+
+                          ctx.fillRect(420, y-10,50,10);
+                          ctx.rect(420, y-10,50,10);
+
+                          ctx.fillRect(470, y-10,50,10);
+                          ctx.rect(470, y-10,50,10);
+
+                          ctx.fillRect(520, y-10,50,10);
+                          ctx.rect(520, y-10,50,10);
+
+                          ctx.fillRect(570, y-10,50,10);
+                          ctx.rect(570, y-10,50,10);
+
+                          ctx.fillRect(620, y-10,50,10);
+                          ctx.rect(620, y-10,50,10);
+
+                          ctx.fillRect(670, y-10,50,10);
+                          ctx.rect(670, y-10,50,10);
+
+                          ctx.fillRect(720, y-10,50,10);
+                          ctx.rect(720, y-10,50,10);
+
+                          ctx.fillRect(770, y-10,50,10);
+                          ctx.rect(770, y-10,50,10);
+
+                          ctx.fillRect(820, y-10,50,10);
+                          ctx.rect(820, y-10,50,10);
+
+                          ctx.fillRect(870, y-10,50,10);
+                          ctx.rect(870, y-10,50,10);
+
+                          ctx.fillRect(920, y-10,50,10);
+                          ctx.rect(920, y-10,50,10);
+
+                          ctx.fillRect(920,y -10,50,10);
+                          ctx.rect(920, y -10,50,10);
+            
+            ctx.stroke();
+        
+        // Update the y location. moves the bricks down screen
+        y += 0.05;
+        
+        // Keep the animation going while the ball has not touched the canvas bottom.
+        if (y < canvas.height - 3)
+          window.requestAnimationFrame(repeatme);
+      }
+      
+      // Get the animation going.
+      repeatme();
+    </script>
+
+  </body>
+
+</html>
