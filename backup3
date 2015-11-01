@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+
+    <style type="text/css">
+      body {
+          background-color: black;
+      }
+      
+        
+        
+                canvas {
+          
+                  position: fixed;
+                  top: 10%;
+                  left: 10%;
+                  border: 3px solid gold;
+                  background-color: forestgreen;
+                    }
+    </style>
+
+  </head>
+
+  <body>
+
+    <canvas id="canvas-for-ball" width="990" height="500"></canvas>
+
+    <script type="text/javascript">
+      // Gets a handle to the element with id canvas-for-ball.
+      var canvas = document.getElementById("canvas-for-ball");
+      // Get a 2D context for the canvas.
+      var ctx = canvas.getContext("2d");
+      
+      
+      
+     
+        
+        
+      
+      var ball = {//---------------ball
+                position:{x: Math.floor((Math.random() * 990) + 1)
+                    , y: Math.floor((Math.random() * 450) + 1)}   
+                    , radius: 5
+                    , acceleration: {x: 2,y: -2}
+          
+          
+                    , draw: function() {
+                        ctx.fillStyle = "rgb(255, 0, 0)";
+                        ctx.beginPath();
+                        ctx.arc(ball.position.x, ball.position.y, ball.radius, 0, 2 * Math.PI);
+                        ctx.closePath();
+                       ctx.fill();
+                    }//end draw
+          
+                    ,move: function() {
+                        
+                        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+                        ball.draw();
+                        ball.position.x += ball.acceleration.x;
+                        ball.position.y += ball.acceleration.y;
+                        
+                            
+                  
+                       }//end move
+          
+                }//--------------------------end ball
+            
+        
+        
+        
+        
+        function repeatme() {
+                    
+          ball.draw();
+            
+          ball.move();
+            
+          paddle.draw();
+            
+             window.requestAnimationFrame(repeatme);
+       
+        }
+        
+         window.requestAnimationFrame(repeatme);
+        
+       
+        
+        
+          
+           
+        
+        
+        
+        //-----------------------------------------------PADDLE WORKS
+        
+        ctx.fillStyle="rgb(0,0,0)";
+        
+        //paddle object
+        var paddle = {
+    
+        x: 450
+        , y: 480
+        , width: 100
+        , height: 10
+            
+             , draw: function() {
+                        ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    }//end draw
+            
+      }
+        
+        
+        
+        
+       
+        
+        
+        //CONTROLS
+        window.addEventListener("keydown", function(event) { 
+                                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                                if (event.keyCode == 39 && paddle.x < canvas.width - paddle.width)
+                                  paddle.x += Math.min(10, canvas.width - paddle.x - paddle.width);
+                                else if (event.keyCode == 37 && paddle.x > paddle.width - paddle.width)
+                                  paddle.x -= 10;
+
+                                paddle.draw();
+                              });
+        
+        //--------------------------------------------------------------------PADDLE
+        
+    </script>
+
+  </body>
+
+</html>
