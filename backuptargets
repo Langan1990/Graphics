@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+
+    <style type="text/css">
+      body {
+          background-color: black;
+      }
+      
+        
+        
+                canvas {
+          
+                  position: fixed;
+                  top: 10%;
+                  left: 10%;
+                  border: 3px solid gold;
+                  background-color: forestgreen;
+                    }
+    </style>
+
+  </head>
+
+  <body>
+
+    <canvas id="canvas-for-ball" width="990" height="500"></canvas>
+
+    <script type="text/javascript">
+      // Gets a handle to the element with id canvas-for-ball.
+      var canvas = document.getElementById("canvas-for-ball");
+      // Get a 2D context for the canvas.
+      var ctx = canvas.getContext("2d");
+      
+      
+      
+     
+        
+        
+      
+      var ball = {//---------------ball
+          
+                //variables for the ball
+                position:{x: Math.floor((Math.random() * 990) + 1)
+                    , y: Math.floor((Math.random() * 450) + 1)}   
+                    , radius: 5
+                    , acceleration: {x: 2,y: -2}
+          
+                    //draw ball to screen function
+                    , draw: function() {
+                        ctx.fillStyle = "rgb(255, 0, 0)";
+                        ctx.beginPath();
+                        ctx.arc(ball.position.x, ball.position.y, ball.radius, 0, 2 * Math.PI);
+                        ctx.closePath();
+                       ctx.fill();
+                    }//end draw
+          
+          
+                    //move the ball function
+                    ,move: function() {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+                        ball.draw();
+                        ball.position.x += ball.acceleration.x;
+                        ball.position.y += ball.acceleration.y;
+                        
+                            //bounces the ball around the x axis of the canvas
+                        if ((ball.position.x >= canvas.width - ball.radius) ||  (ball.position.x <= ball.radius))
+                            ball.acceleration.x = -ball.acceleration.x;    
+                        
+                            //bouces the ball off the top of the canvas
+                            //take out first part of the or in the if when project is finished
+                        if ((ball.position.y >= canvas.height - ball.radius) ||  (ball.position.y <= ball.radius))
+                            ball.acceleration.y = -ball.acceleration.y;
+                        
+                        
+                       
+                        
+                        
+                            
+                  
+                       }//end move
+          
+                }//--------------------------end ball
+            
+        
+        
+        
+        
+        function repeatme() {
+                    
+          ball.draw();
+            
+          ball.move();
+            
+          paddle.draw();
+            
+            t1.draw();
+            t2.draw();
+            t3.draw();
+            t4.draw();
+            t5.draw();
+            t6.draw();
+            t7.draw();
+            t8.draw();
+            t9.draw();
+            t10.draw();
+            t11.draw();
+            t12.draw();
+          
+            
+          Collision();
+            
+            
+             window.requestAnimationFrame(repeatme);
+       
+        }
+        
+         window.requestAnimationFrame(repeatme);
+        
+       
+        
+            //array for the targets
+           var target = []
+           
+           var speed = 0.1;
+           //t1 variables
+                 t1 = { x: 20 , y: 20 , width: 150  , height: 10 
+                        , draw: function() {
+                       
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                       
+                       
+                      }
+                 //pushes t1 to the target array
+                 target.push(t1);
+               
+                t2 = { x: 180 , y: 20 , width: 150  , height: 10 
+                      
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                      
+                     
+                         }
+                target.push(t2);
+             
+                
+                t3 = { x: 340 , y: 20 , width: 150  , height: 10 
+                      
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                target.push(t3);
+        
+        
+                 t4 = { x: 500 , y: 20 , width: 150  , height: 10 
+                       
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                target.push(t4);
+                
+                t5 = { x: 660 , y: 20 , width: 150  , height: 10 
+                      
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                target.push(t5);
+                         
+                t6 = { x: 820 , y: 20 , width: 150  , height: 10 
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                target.push(t6);
+        
+                t7 = { x: 20 , y: 35 , width: 150  , height: 10 
+                        , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                 target.push(t7);
+               
+                t8 = { x: 180 , y: 35 , width: 150  , height: 10
+                      
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                target.push(t8);
+             
+                
+                t9 = { x: 340 , y: 35 , width: 150  , height: 10 
+                      
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                target.push(t9);
+        
+        
+                 t10 = { x: 500 , y: 35 , width: 150  , height: 10 
+                        
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                target.push(t10);
+                
+                t11 = { x: 660 , y: 35 , width: 150  , height: 10 
+                       
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                target.push(t11);
+                         
+                t12 = { x: 820 , y: 35 , width: 150  , height: 10 
+                       
+                       , draw: function() {
+                        ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                    ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+                         }
+                target.push(t12);
+           
+    
+       
+            
+            
+              
+          
+           
+        
+        
+        
+        //-----------------------------------------------PADDLE WORKS
+        
+        
+        
+        //paddle object
+        var paddle = {
+    
+          x: 450
+        , y: 480
+        , width: 100
+        , height: 10
+            
+             , draw: function() {
+                        ctx.fillStyle="rgb(0,0,0)";//colour
+                    ctx.beginPath();
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fill();
+                 ctx.fillStyle="rgb(255,255,255)";//colour
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.stroke();
+                    }//end draw
+            
+      }
+        
+     
+        
+        
+        
+        
+       
+        
+        
+        //CONTROLS
+        window.addEventListener("keydown", function(event) { 
+                                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                                if (event.keyCode == 39 && paddle.x < canvas.width - paddle.width)
+                                  paddle.x += Math.min(10, canvas.width - paddle.x - paddle.width);
+                                else if (event.keyCode == 37 && paddle.x > paddle.width - paddle.width)
+                                  paddle.x -= 10;
+
+                                paddle.draw();
+                              });
+        
+        //--------------------------------------------------------------------PADDLE
+        
+        function Collision() {
+			if (ball.position.x + ball.radius < paddle.x || ball.position.x - ball.radius > paddle.x + paddle.width)
+				return;
+			
+			if (ball.position.y + ball.radius < paddle.y)
+				return;
+			
+			else{
+				ball.acceleration.y = -ball.acceleration.y;
+				
+			
+			}	
+		}
+      
+        
+    </script>
+
+  </body>
+
+</html>
