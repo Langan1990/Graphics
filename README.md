@@ -13,3 +13,9 @@ You use the paddle to keep a ball from hitting the bottom of the canvas. If that
 The brick objects are your targets, you get 1 point for every brick you break.
 It is going to be like space invaders in the way that the bricks are always going to be slowly falling to the bottom of the canvas.
 When any brick reaches the bottom it is game over.
+
+## Bug Reports
+
+I cannot get the collision detection working for the target objects
+
+There is also a bug with the paddle where, if the ball hits the side of the paddle, it seems like it gets stuck in the paddle and goes through it until it gets to the other side
